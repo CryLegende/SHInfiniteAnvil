@@ -1,0 +1,6 @@
+# SHInfiniteAnvil Configuration
+
+# List of world names where anvils will not lose durability or change their state.
+# Case-sensitive! Make sure these names match exactly your world folder names.
+whitelisted-worlds:
+  - "spawn"
