@@ -33,12 +33,11 @@ public class SHInfiniteAnvil extends JavaPlugin {
 
     public void loadConfigValues() {
         reloadConfig(); // S'assure de lire la dernière version
+        // getStringList ne renvoie jamais null : on teste la liste vide
         List<String> worlds = getConfig().getStringList("whitelisted-worlds");
-        if (worlds == null) {
-            whitelistedWorlds = new HashSet<>();
+        whitelistedWorlds = new HashSet<>(worlds);
+        if (whitelistedWorlds.isEmpty()) {
             getLogger().warning("'whitelisted-worlds' list not found in config.yml or is empty. No worlds will have infinite anvils.");
-        } else {
-            whitelistedWorlds = new HashSet<>(worlds);
         }
     }
 
